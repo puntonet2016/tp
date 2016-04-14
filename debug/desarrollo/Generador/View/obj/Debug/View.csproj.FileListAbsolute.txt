@@ -1,0 +1,9 @@
+F:\proyectos\punto net\tp\desarrollo\Generador\View\bin\Debug\View.exe.config
+F:\proyectos\punto net\tp\desarrollo\Generador\View\bin\Debug\View.exe
+F:\proyectos\punto net\tp\desarrollo\Generador\View\bin\Debug\View.pdb
+F:\proyectos\punto net\tp\desarrollo\Generador\View\obj\Debug\View.csprojResolveAssemblyReference.cache
+F:\proyectos\punto net\tp\desarrollo\Generador\View\obj\Debug\View.Properties.Resources.resources
+F:\proyectos\punto net\tp\desarrollo\Generador\View\obj\Debug\View.csproj.GenerateResource.Cache
+F:\proyectos\punto net\tp\desarrollo\Generador\View\obj\Debug\View.exe
+F:\proyectos\punto net\tp\desarrollo\Generador\View\obj\Debug\View.pdb
+F:\proyectos\punto net\tp\desarrollo\Generador\View\obj\Debug\View.Index.resources
