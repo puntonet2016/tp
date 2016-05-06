@@ -1,0 +1,33 @@
+d:\documentos\visual studio 2013\Projects\Proyectos\Negocio\bin\Debug\Negocio.dll
+d:\documentos\visual studio 2013\Projects\Proyectos\Negocio\bin\Debug\Negocio.pdb
+d:\documentos\visual studio 2013\Projects\Proyectos\Negocio\bin\Debug\Datos.dll
+d:\documentos\visual studio 2013\Projects\Proyectos\Negocio\bin\Debug\Entidades.dll
+d:\documentos\visual studio 2013\Projects\Proyectos\Negocio\bin\Debug\EntityFramework.dll
+d:\documentos\visual studio 2013\Projects\Proyectos\Negocio\bin\Debug\Datos.pdb
+d:\documentos\visual studio 2013\Projects\Proyectos\Negocio\bin\Debug\Entidades.pdb
+d:\documentos\visual studio 2013\Projects\Proyectos\Negocio\bin\Debug\EntityFramework.xml
+d:\documentos\visual studio 2013\Projects\Proyectos\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
+d:\documentos\visual studio 2013\Projects\Proyectos\Negocio\obj\Debug\Negocio.dll
+d:\documentos\visual studio 2013\Projects\Proyectos\Negocio\obj\Debug\Negocio.pdb
+I:\punto net\Proyectos\Negocio\bin\Debug\Negocio.dll
+I:\punto net\Proyectos\Negocio\bin\Debug\Negocio.pdb
+I:\punto net\Proyectos\Negocio\bin\Debug\Datos.dll
+I:\punto net\Proyectos\Negocio\bin\Debug\Entidades.dll
+I:\punto net\Proyectos\Negocio\bin\Debug\EntityFramework.dll
+I:\punto net\Proyectos\Negocio\bin\Debug\Datos.pdb
+I:\punto net\Proyectos\Negocio\bin\Debug\Entidades.pdb
+I:\punto net\Proyectos\Negocio\bin\Debug\EntityFramework.xml
+I:\punto net\Proyectos\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
+I:\punto net\Proyectos\Negocio\obj\Debug\Negocio.dll
+I:\punto net\Proyectos\Negocio\obj\Debug\Negocio.pdb
+F:\proyectos\punto net\tp\debug\Proyectos\Negocio\bin\Debug\Negocio.dll
+F:\proyectos\punto net\tp\debug\Proyectos\Negocio\bin\Debug\Negocio.pdb
+F:\proyectos\punto net\tp\debug\Proyectos\Negocio\bin\Debug\Datos.dll
+F:\proyectos\punto net\tp\debug\Proyectos\Negocio\bin\Debug\Entidades.dll
+F:\proyectos\punto net\tp\debug\Proyectos\Negocio\bin\Debug\EntityFramework.dll
+F:\proyectos\punto net\tp\debug\Proyectos\Negocio\bin\Debug\Datos.pdb
+F:\proyectos\punto net\tp\debug\Proyectos\Negocio\bin\Debug\Entidades.pdb
+F:\proyectos\punto net\tp\debug\Proyectos\Negocio\bin\Debug\EntityFramework.xml
+F:\proyectos\punto net\tp\debug\Proyectos\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
+F:\proyectos\punto net\tp\debug\Proyectos\Negocio\obj\Debug\Negocio.dll
+F:\proyectos\punto net\tp\debug\Proyectos\Negocio\obj\Debug\Negocio.pdb

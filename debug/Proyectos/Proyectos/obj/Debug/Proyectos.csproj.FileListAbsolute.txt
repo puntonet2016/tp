@@ -1,0 +1,8 @@
+d:\documentos\visual studio 2013\Projects\Proyectos\Proyectos\bin\Debug\Proyectos.exe.config
+d:\documentos\visual studio 2013\Projects\Proyectos\Proyectos\bin\Debug\Proyectos.exe
+d:\documentos\visual studio 2013\Projects\Proyectos\Proyectos\bin\Debug\Proyectos.pdb
+d:\documentos\visual studio 2013\Projects\Proyectos\Proyectos\obj\Debug\Proyectos.csprojResolveAssemblyReference.cache
+d:\documentos\visual studio 2013\Projects\Proyectos\Proyectos\obj\Debug\Proyectos.Properties.Resources.resources
+d:\documentos\visual studio 2013\Projects\Proyectos\Proyectos\obj\Debug\Proyectos.csproj.GenerateResource.Cache
+d:\documentos\visual studio 2013\Projects\Proyectos\Proyectos\obj\Debug\Proyectos.exe
+d:\documentos\visual studio 2013\Projects\Proyectos\Proyectos\obj\Debug\Proyectos.pdb

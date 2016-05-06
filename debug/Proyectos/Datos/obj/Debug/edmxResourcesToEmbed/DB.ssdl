@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="proyectoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="factores">
+    <Key>
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="valores">
+    <Key>
+      <PropertyRef Name="rating" />
+      <PropertyRef Name="nombreFactor" />
+    </Key>
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="rating" Type="smallint" Nullable="false" />
+    <Property Name="nombreFactor" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="valores_fk_factores">
+    <End Role="factores" Type="Self.factores" Multiplicity="1" />
+    <End Role="valores" Type="Self.valores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="factores">
+        <PropertyRef Name="nombre" />
+      </Principal>
+      <Dependent Role="valores">
+        <PropertyRef Name="nombreFactor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="proyectoModelStoreContainer">
+    <EntitySet Name="factores" EntityType="Self.factores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="valores" EntityType="Self.valores" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="valores_fk_factores" Association="Self.valores_fk_factores">
+      <End Role="factores" EntitySet="factores" />
+      <End Role="valores" EntitySet="valores" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

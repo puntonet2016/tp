@@ -1,0 +1,13 @@
+d:\documentos\visual studio 2013\Projects\Proyectos\Entidades\bin\Debug\Entidades.dll
+d:\documentos\visual studio 2013\Projects\Proyectos\Entidades\bin\Debug\Entidades.pdb
+d:\documentos\visual studio 2013\Projects\Proyectos\Entidades\obj\Debug\Entidades.dll
+d:\documentos\visual studio 2013\Projects\Proyectos\Entidades\obj\Debug\Entidades.pdb
+I:\punto net\Proyectos\Entidades\bin\Debug\Entidades.dll
+I:\punto net\Proyectos\Entidades\bin\Debug\Entidades.pdb
+I:\punto net\Proyectos\Entidades\obj\Debug\Entidades.dll
+I:\punto net\Proyectos\Entidades\obj\Debug\Entidades.pdb
+F:\proyectos\punto net\tp\debug\Proyectos\Entidades\bin\Debug\Entidades.dll
+F:\proyectos\punto net\tp\debug\Proyectos\Entidades\bin\Debug\Entidades.pdb
+F:\proyectos\punto net\tp\debug\Proyectos\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+F:\proyectos\punto net\tp\debug\Proyectos\Entidades\obj\Debug\Entidades.dll
+F:\proyectos\punto net\tp\debug\Proyectos\Entidades\obj\Debug\Entidades.pdb

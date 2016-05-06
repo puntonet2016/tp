@@ -1,0 +1,36 @@
+d:\documentos\visual studio 2013\Projects\Proyectos\Datos\bin\Debug\Datos.dll.config
+d:\documentos\visual studio 2013\Projects\Proyectos\Datos\bin\Debug\Datos.dll
+d:\documentos\visual studio 2013\Projects\Proyectos\Datos\bin\Debug\Datos.pdb
+d:\documentos\visual studio 2013\Projects\Proyectos\Datos\bin\Debug\Entidades.dll
+d:\documentos\visual studio 2013\Projects\Proyectos\Datos\bin\Debug\EntityFramework.dll
+d:\documentos\visual studio 2013\Projects\Proyectos\Datos\bin\Debug\EntityFramework.SqlServer.dll
+d:\documentos\visual studio 2013\Projects\Proyectos\Datos\bin\Debug\Entidades.pdb
+d:\documentos\visual studio 2013\Projects\Proyectos\Datos\bin\Debug\EntityFramework.xml
+d:\documentos\visual studio 2013\Projects\Proyectos\Datos\bin\Debug\EntityFramework.SqlServer.xml
+d:\documentos\visual studio 2013\Projects\Proyectos\Datos\obj\Debug\Datos.csprojResolveAssemblyReference.cache
+d:\documentos\visual studio 2013\Projects\Proyectos\Datos\obj\Debug\Datos.dll
+d:\documentos\visual studio 2013\Projects\Proyectos\Datos\obj\Debug\Datos.pdb
+I:\punto net\Proyectos\Datos\bin\Debug\Datos.dll.config
+I:\punto net\Proyectos\Datos\bin\Debug\Datos.dll
+I:\punto net\Proyectos\Datos\bin\Debug\Datos.pdb
+I:\punto net\Proyectos\Datos\bin\Debug\Entidades.dll
+I:\punto net\Proyectos\Datos\bin\Debug\EntityFramework.dll
+I:\punto net\Proyectos\Datos\bin\Debug\EntityFramework.SqlServer.dll
+I:\punto net\Proyectos\Datos\bin\Debug\Entidades.pdb
+I:\punto net\Proyectos\Datos\bin\Debug\EntityFramework.xml
+I:\punto net\Proyectos\Datos\bin\Debug\EntityFramework.SqlServer.xml
+I:\punto net\Proyectos\Datos\obj\Debug\Datos.csprojResolveAssemblyReference.cache
+I:\punto net\Proyectos\Datos\obj\Debug\Datos.dll
+I:\punto net\Proyectos\Datos\obj\Debug\Datos.pdb
+F:\proyectos\punto net\tp\debug\Proyectos\Datos\obj\Debug\Datos.csprojResolveAssemblyReference.cache
+F:\proyectos\punto net\tp\debug\Proyectos\Datos\bin\Debug\Datos.dll.config
+F:\proyectos\punto net\tp\debug\Proyectos\Datos\bin\Debug\Datos.dll
+F:\proyectos\punto net\tp\debug\Proyectos\Datos\bin\Debug\Datos.pdb
+F:\proyectos\punto net\tp\debug\Proyectos\Datos\bin\Debug\Entidades.dll
+F:\proyectos\punto net\tp\debug\Proyectos\Datos\bin\Debug\EntityFramework.dll
+F:\proyectos\punto net\tp\debug\Proyectos\Datos\bin\Debug\EntityFramework.SqlServer.dll
+F:\proyectos\punto net\tp\debug\Proyectos\Datos\bin\Debug\Entidades.pdb
+F:\proyectos\punto net\tp\debug\Proyectos\Datos\bin\Debug\EntityFramework.xml
+F:\proyectos\punto net\tp\debug\Proyectos\Datos\bin\Debug\EntityFramework.SqlServer.xml
+F:\proyectos\punto net\tp\debug\Proyectos\Datos\obj\Debug\Datos.dll
+F:\proyectos\punto net\tp\debug\Proyectos\Datos\obj\Debug\Datos.pdb

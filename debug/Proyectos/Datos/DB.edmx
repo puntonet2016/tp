@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="proyectoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="factores">
+          <Key>
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="habilitado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="valores">
+          <Key>
+            <PropertyRef Name="rating" />
+            <PropertyRef Name="nombreFactor" />
+          </Key>
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="rating" Type="smallint" Nullable="false" />
+          <Property Name="nombreFactor" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="valores_fk_factores">
+          <End Role="factores" Type="Self.factores" Multiplicity="1" />
+          <End Role="valores" Type="Self.valores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="factores">
+              <PropertyRef Name="nombre" />
+            </Principal>
+            <Dependent Role="valores">
+              <PropertyRef Name="nombreFactor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="proyectoModelStoreContainer">
+          <EntitySet Name="factores" EntityType="Self.factores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="valores" EntityType="Self.valores" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="valores_fk_factores" Association="Self.valores_fk_factores">
+            <End Role="factores" EntitySet="factores" />
+            <End Role="valores" EntitySet="valores" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="proyectoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DB_ProyectoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="factores" EntityType="proyectoModel.factores" />
+          <EntitySet Name="valores" EntityType="proyectoModel.valores" />
+          <AssociationSet Name="valores_fk_factores" Association="proyectoModel.valores_fk_factores">
+            <End Role="factores" EntitySet="factores" />
+            <End Role="valores" EntitySet="valores" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="factores">
+          <Key>
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="valores" Relationship="proyectoModel.valores_fk_factores" FromRole="factores" ToRole="valores" />
+        </EntityType>
+        <EntityType Name="valores">
+          <Key>
+            <PropertyRef Name="rating" />
+            <PropertyRef Name="nombreFactor" />
+          </Key>
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rating" Type="Int16" Nullable="false" />
+          <Property Name="nombreFactor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="factores" Relationship="proyectoModel.valores_fk_factores" FromRole="valores" ToRole="factores" />
+        </EntityType>
+        <Association Name="valores_fk_factores">
+          <End Type="proyectoModel.factores" Role="factores" Multiplicity="1" />
+          <End Type="proyectoModel.valores" Role="valores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="factores">
+              <PropertyRef Name="nombre" />
+            </Principal>
+            <Dependent Role="valores">
+              <PropertyRef Name="nombreFactor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="proyectoModelStoreContainer" CdmEntityContainer="DB_ProyectoEntities">
+          <EntitySetMapping Name="factores">
+            <EntityTypeMapping TypeName="proyectoModel.factores">
+              <MappingFragment StoreEntitySet="factores">
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="valores">
+            <EntityTypeMapping TypeName="proyectoModel.valores">
+              <MappingFragment StoreEntitySet="valores">
+                <ScalarProperty Name="nombreFactor" ColumnName="nombreFactor" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

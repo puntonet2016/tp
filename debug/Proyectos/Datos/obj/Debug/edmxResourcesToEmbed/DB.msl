@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="proyectoModelStoreContainer" CdmEntityContainer="DB_ProyectoEntities">
+    <EntitySetMapping Name="factores">
+      <EntityTypeMapping TypeName="proyectoModel.factores">
+        <MappingFragment StoreEntitySet="factores">
+          <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="valores">
+      <EntityTypeMapping TypeName="proyectoModel.valores">
+        <MappingFragment StoreEntitySet="valores">
+          <ScalarProperty Name="nombreFactor" ColumnName="nombreFactor" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="proyectoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DB_ProyectoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="factores" EntityType="proyectoModel.factores" />
+    <EntitySet Name="valores" EntityType="proyectoModel.valores" />
+    <AssociationSet Name="valores_fk_factores" Association="proyectoModel.valores_fk_factores">
+      <End Role="factores" EntitySet="factores" />
+      <End Role="valores" EntitySet="valores" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="factores">
+    <Key>
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="valores" Relationship="proyectoModel.valores_fk_factores" FromRole="factores" ToRole="valores" />
+  </EntityType>
+  <EntityType Name="valores">
+    <Key>
+      <PropertyRef Name="rating" />
+      <PropertyRef Name="nombreFactor" />
+    </Key>
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="rating" Type="Int16" Nullable="false" />
+    <Property Name="nombreFactor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="factores" Relationship="proyectoModel.valores_fk_factores" FromRole="valores" ToRole="factores" />
+  </EntityType>
+  <Association Name="valores_fk_factores">
+    <End Type="proyectoModel.factores" Role="factores" Multiplicity="1" />
+    <End Type="proyectoModel.valores" Role="valores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="factores">
+        <PropertyRef Name="nombre" />
+      </Principal>
+      <Dependent Role="valores">
+        <PropertyRef Name="nombreFactor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
