@@ -18,6 +18,12 @@ namespace Proyectos
         private string _nombre_factor;
         private bool _nuevo_registro;
 
+        private const string TITULO_NUEVO_REGISTRO = "Nuevo factor";
+        private const string TITULO_MODIFICANDO_REGISTRO = "Modificar factor";
+
+        /// <summary>
+        /// Se inicializa el formulario para crear un nuevo factor.
+        /// </summary>
         public FactorForm()
         {
             InitializeComponent();
@@ -25,36 +31,65 @@ namespace Proyectos
             this.nuevoRegistro = true;
         }
 
+        /// <summary>
+        /// Se inicializa el formulario con los datos del factor dado y listo para modificarse.
+        /// </summary>
+        /// <param name="nombreFactor">Nombre del factor a modificar</param>
         public FactorForm(string nombreFactor)
         {
             InitializeComponent();
             this.nombreFactor = nombreFactor;
-            this.nuevoRegistro = false;
+            this.nuevoRegistro = true;
         }
 
+        /// <summary>
+        /// Nombre del factor con el que se creó el formulario
+        /// </summary>
         private string nombreFactor 
         {
             get { return _nombre_factor; }
             set { _nombre_factor = value; }
         }
 
+        /// <summary>
+        /// Indica si se esta creando un registro o modificando.
+        /// </summary>
         private bool nuevoRegistro
         {
             get { return _nuevo_registro; }
-            set { _nuevo_registro = value; }
+            set
+            {
+
+                if (!value)
+                {
+                    this.NombreFactor.Enabled = false;
+                    this.Text = TITULO_MODIFICANDO_REGISTRO;
+                }
+                else
+                {
+                    this.NombreFactor.Enabled = true;
+                    this.Text = TITULO_NUEVO_REGISTRO;
+                }
+
+                _nuevo_registro = value;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string nombreFactor= this.NombreFactor.Text.Trim();
+            #region Inicializacion de variables
+            string nombre= this.NombreFactor.Text.Trim();
             string valorBajo = this.ValorBajo.Text.Trim();
             string valorMedio = this.ValorMedio.Text.Trim();
             string valorAlto = this.ValorAlto.Text.Trim();
             bool habilitar = this.checkBox1.Checked;
 
+            FactoresNegocio negocio = new FactoresNegocio();
             IList<string> errores= new List<string>();
+            #endregion
 
-            if (nombreFactor.Length == 0)
+            #region Validación de datos obligatorios
+            if (nombre.Length == 0)
                 errores.Add("Ingrese el nombre del factor.");
 
             if (valorAlto.Length == 0)
@@ -65,20 +100,21 @@ namespace Proyectos
 
             if (valorBajo.Length == 0)
                 errores.Add("Ingrese el nombre del valor bajo.");
+            
 
             if (errores.Count > 0)
             {
                 this.mostrarErrores(errores);
                 return;
             }
+            #endregion
 
-            FactoresNegocio negocio = new FactoresNegocio();
-
+            #region Grabacion
             try
             {
-                if (negocio.grabar(nombreFactor, valorAlto, valorMedio, valorBajo, habilitar))
+                if (negocio.grabar(nombre, valorAlto, valorMedio, valorBajo, habilitar))
                 {
-                    this.NombreFactor.Enabled = false;
+                    this.nuevoRegistro = false;
                     MessageBox.Show(this, "Datos grabados correctamente.");
                 }
                     
@@ -89,6 +125,7 @@ namespace Proyectos
             {
                 MessageBox.Show(this, ex.Message);
             }
+            #endregion
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -98,6 +135,12 @@ namespace Proyectos
 
         private void FactorForm_Shown(object sender, EventArgs e)
         {
+            this.NombreFactor.MaxLength = factores.MAXIMO_NOMBRE;
+            this.ValorBajo.MaxLength = factores.MAXIMO_NOMBRE;
+            this.ValorMedio.MaxLength = factores.MAXIMO_NOMBRE;
+            this.ValorAlto.MaxLength = factores.MAXIMO_NOMBRE;
+
+
             if (this.nombreFactor != null)
             {
                 FactoresNegocio negocio = new FactoresNegocio();
@@ -109,37 +152,30 @@ namespace Proyectos
                     return;
                 }
 
+                this.nuevoRegistro = false;
                 this.NombreFactor.Text = factor.nombre;
                 this.checkBox1.Checked = factor.habilitado;
-                //System.Console.WriteLine(factor);
-                if (factor.valores != null && factor.valores.Count > 0)
-                {
-                    foreach (valores valor in factor.valores)
-                    {
-                        switch (valor.rating)
-                        {
-                            case 0: this.ValorBajo.Text = valor.nombre; break;
-                            case 1: this.ValorMedio.Text = valor.nombre; break;
-                            case 2: this.ValorAlto.Text = valor.nombre; break;
-                        }
-                    }
-                }
-            }
-
-            if (!this.nuevoRegistro)
-                this.NombreFactor.Enabled = false;
+                
+                this.ValorBajo.Text = factor.valorBajo;
+                this.ValorMedio.Text = factor.valorMedio;
+                this.ValorAlto.Text = factor.valorAlto;
+            }                
         }
 
+        /// <summary>
+        /// Muestra un dialogo con los errores de la lista
+        /// </summary>
+        /// <param name="errores">Errores a mostrar.</param>
         private void mostrarErrores(IList<string> errores)
         {
             if(errores.Count == 0) return;
-            
-            string texto = "Por favor, corrija los siguientes errores:\n";
+
+            string texto = "";
 
             foreach (string error in errores)
-                texto += "\t- " + error + "\n";
+                texto += "- " + error + "\n";
 
-            MessageBox.Show(this, texto);
+            MessageBox.Show(texto, "Errores", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

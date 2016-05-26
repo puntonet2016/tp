@@ -14,14 +14,21 @@ namespace Entidades
     
     public partial class valores
     {
-        public static int RATING_BAJO = 0;
-        public static int RATING_MEDIO = 1;
-        public static int RATING_ALTO = 2;
+        public const int RATING_BAJO = 0;
+        public const int RATING_MEDIO = 1;
+        public const int RATING_ALTO = 2;
+
+        public const int MAXIMO_NOMBRE = 50;
 
         public string nombre { get; set; }
         public short rating { get; set; }
         public string nombreFactor { get; set; }
     
         public virtual factores factores { get; set; }
+
+        public override string ToString()
+        {
+            return "Clase 'valores': Nombre= '" + this.nombre + "'. Rating= " + this.rating + ". Factor= '" + this.nombreFactor + "'";
+        }
     }
 }

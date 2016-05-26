@@ -11,58 +11,23 @@ namespace Datos
 {
     public class DB_Factores
     {
-        /*
-        public static IList<factores> getTodos()
-        {
-            using (DB_ProyectoEntities db = new DB_ProyectoEntities())
-            {
-                IList<factores> ret= null;
-
-                try
-                {
-                    //ret= db.factores.s;
-                    
-                    var datos = from f in db.factores
-                                select new
-                                {
-                                    nombre= f.nombre,
-                                    habilitado= f.habilitado,
-                                    alto= f.valorAlto,
-                                    medio= f.valorMedio,
-                                    bajo= f.valorBajo
-                                };
-
-                    ret= db.factores.ToList<factores>();
-                    //ret = new List<factores>();
-                    
-                    /*
-                    foreach (var d in datos)
-                    {
-
-                        ret.Add(new factores() { 
-                            nombre= d.nombre,
-                            habilitado= d.habilitado,
-                            valorAlto= d.alto,
-                            valorMedio= d.medio,
-                            valorBajo= d.bajo
-                        });
-                    }
-                     
-
-                } catch(Exception e)
-                {
-                    throw e;
-                }
-
-                return ret;
-            }
-        }
-        */
+        /// <summary>
+        /// Obtiene todos los factores.
+        /// </summary>
+        /// <returns>Una lista de los factores encontrados</returns>
+        /// <exception cref="System.Exception">Error que se ha producido al intentar obtener todos los factores.</exception>
         public static IList<factores> getTodos()
         {
             return new DB_ProyectoEntities().factores.ToList<factores>();
         }
 
+        /// <summary>
+        /// Se obtiene los datos del factor que coincida con el nombre provisto.
+        /// </summary>
+        /// <param name="nombre">Nombre del factor.</param>
+        /// <returns>Un objeto con los datos del factor obtenido.
+        /// NULL en el caso de que no se encuentre un factor con el mismo nombre.</returns>
+        /// <exception cref="System.Exception">Error que se ha producido al intentar obtener el factor.</exception>
         public static factores uno(string nombre)
         {
 
@@ -83,14 +48,15 @@ namespace Datos
                     {
                         switch(val.rating)
                         {
-                            case 0: model.valorBajo = val.nombre; break;
-                            case 1: model.valorMedio = val.nombre; break;
-                            case 2: model.valorAlto = val.nombre; break;
+                            case valores.RATING_BAJO: model.valorBajo = val.nombre; break;
+                            case valores.RATING_MEDIO: model.valorMedio = val.nombre; break;
+                            case valores.RATING_ALTO: model.valorAlto = val.nombre; break;
                         }
                     }
                 }
                 catch (Exception e)
                 {
+                    //TODO loggear el error
                     throw e;
                 }
 
@@ -98,6 +64,11 @@ namespace Datos
             }
         }
 
+        /// <summary>
+        /// Se persiste un factor.
+        /// </summary>
+        /// <param name="factor">El factor a persistir.</param>
+        /// <exception cref="System.Exception">Error que se ha producido al intentar persistir el factor</exception>
         public static void grabar(factores factor)
         {
 
@@ -115,9 +86,9 @@ namespace Datos
                     {
                         switch (val.rating)
                         {
-                            case 0: model.valorBajo = val.nombre; break;
-                            case 1: model.valorMedio = val.nombre; break;
-                            case 2: model.valorAlto = val.nombre; break;
+                            case valores.RATING_BAJO: model.valorBajo = val.nombre; break;
+                            case valores.RATING_MEDIO: model.valorMedio = val.nombre; break;
+                            case valores.RATING_ALTO: model.valorAlto = val.nombre; break;
                         }
                     }
 
@@ -138,9 +109,10 @@ namespace Datos
 
                 try
                 {
+                    //TODO loggear el registro
                     db.SaveChanges();
                 } catch(Exception e){
-                    
+                    //TODO loggear el error
                     throw e;
                 }
             }

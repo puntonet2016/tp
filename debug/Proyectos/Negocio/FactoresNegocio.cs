@@ -13,12 +13,31 @@ namespace Negocio
     {
         private IList<string> _errores;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public IList<String> errores
         {
-            get { return _errores; }
-            set { _errores = value; }
+            get { return _errores == null ? new List<string>() : _errores; }
         }
 
+        private void agregarError(string error)
+        {
+            if (this._errores == null)
+                this._errores = new List<String>();
+
+            this._errores.Add(error);
+        }
+
+        public FactoresNegocio()
+        {
+            this._errores= new List<string>();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public IList<factores> getTodos()
         {
             IList<factores> ret = null;
@@ -29,18 +48,23 @@ namespace Negocio
             }
             catch (Exception e)
             {
-                IList<string> err = new List<string>();
-                err.Add(e.Message);
-                this.errores = err;
+                this.agregarError("Ocurrió un error al intentar realizar la acción.");
+                System.Console.WriteLine(e.Message);
                 ret= new List<factores>();
             }
 
             return ret;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nombreFactor"></param>
+        /// <returns></returns>
         public factores uno(string nombreFactor)
         {
             factores model = null;
+            this._errores = null;
 
             try
             {
@@ -48,8 +72,8 @@ namespace Negocio
             }
             catch (Exception e)
             {
-                IList<string> err = new List<string>();
-                err.Add(e.Message);
+                this.agregarError("Ocurrió un error al intentar realizar la acción.");
+                System.Console.WriteLine(e.Message);
                 model = null;
             }
 
@@ -57,19 +81,29 @@ namespace Negocio
             return model;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nombreFactor"></param>
+        /// <param name="nombreValorAlto"></param>
+        /// <param name="nombreValorMedio"></param>
+        /// <param name="nombreValorBajo"></param>
+        /// <param name="habilitar"></param>
+        /// <returns></returns>
         public bool grabar(string nombreFactor, string nombreValorAlto, string nombreValorMedio, string nombreValorBajo, bool habilitar)
         {
             #region validacion de datos
-            IList<string> err = new List<string>();
+            //IList<string> err = new List<string>();
+            this._errores = null;
 
             if (nombreValorAlto.Equals(nombreValorMedio))
-                err.Add("El nombre de valor '" + nombreValorAlto + "' se encuentra repetido.");
+                this.agregarError("El nombre de valor '" + nombreValorAlto + "' se encuentra repetido.");
             else if (nombreValorAlto.Equals(nombreValorBajo))
-                err.Add("El nombre de valor '" + nombreValorAlto + "' se encuentra repetido.");
+                this.agregarError("El nombre de valor '" + nombreValorAlto + "' se encuentra repetido.");
             else if (nombreValorMedio.Equals(nombreValorBajo))
-                err.Add("El nombre de valor '" + nombreValorMedio + "' se encuentra repetido.");
+                this.agregarError("El nombre de valor '" + nombreValorMedio + "' se encuentra repetido.");
 
-            this.errores = err;
+            //this.agregarError(err);
 
             if (this.errores.Count > 0)
                 return false;
@@ -94,6 +128,7 @@ namespace Negocio
             }
             catch (Exception e)
             {
+                this.agregarError("Ocurrió un error al intentar realizar la acción.");
                 System.Console.WriteLine(e.Message);
                 return false;
             }

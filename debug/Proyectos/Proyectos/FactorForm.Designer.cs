@@ -36,7 +36,7 @@
             this.ValorAlto = new System.Windows.Forms.TextBox();
             this.ValorMedio = new System.Windows.Forms.TextBox();
             this.ValorBajo = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.botonGrabar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
@@ -44,6 +44,7 @@
             // NombreFactor
             // 
             this.NombreFactor.Location = new System.Drawing.Point(102, 14);
+            this.NombreFactor.MaxLength = 50;
             this.NombreFactor.Name = "NombreFactor";
             this.NombreFactor.Size = new System.Drawing.Size(100, 20);
             this.NombreFactor.TabIndex = 0;
@@ -87,6 +88,7 @@
             // ValorAlto
             // 
             this.ValorAlto.Location = new System.Drawing.Point(102, 51);
+            this.ValorAlto.MaxLength = 50;
             this.ValorAlto.Name = "ValorAlto";
             this.ValorAlto.Size = new System.Drawing.Size(100, 20);
             this.ValorAlto.TabIndex = 5;
@@ -94,6 +96,7 @@
             // ValorMedio
             // 
             this.ValorMedio.Location = new System.Drawing.Point(102, 91);
+            this.ValorMedio.MaxLength = 50;
             this.ValorMedio.Name = "ValorMedio";
             this.ValorMedio.Size = new System.Drawing.Size(100, 20);
             this.ValorMedio.TabIndex = 6;
@@ -101,19 +104,20 @@
             // ValorBajo
             // 
             this.ValorBajo.Location = new System.Drawing.Point(102, 126);
+            this.ValorBajo.MaxLength = 50;
             this.ValorBajo.Name = "ValorBajo";
             this.ValorBajo.Size = new System.Drawing.Size(100, 20);
             this.ValorBajo.TabIndex = 7;
             // 
-            // button1
+            // botonGrabar
             // 
-            this.button1.Location = new System.Drawing.Point(12, 189);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.botonGrabar.Location = new System.Drawing.Point(12, 189);
+            this.botonGrabar.Name = "botonGrabar";
+            this.botonGrabar.Size = new System.Drawing.Size(75, 23);
+            this.botonGrabar.TabIndex = 8;
+            this.botonGrabar.Text = "Guardar";
+            this.botonGrabar.UseVisualStyleBackColor = true;
+            this.botonGrabar.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -145,7 +149,7 @@
             this.ClientSize = new System.Drawing.Size(211, 224);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.botonGrabar);
             this.Controls.Add(this.ValorBajo);
             this.Controls.Add(this.ValorMedio);
             this.Controls.Add(this.ValorAlto);
@@ -172,7 +176,7 @@
         private System.Windows.Forms.TextBox ValorAlto;
         private System.Windows.Forms.TextBox ValorMedio;
         private System.Windows.Forms.TextBox ValorBajo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button botonGrabar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckBox checkBox1;
     }

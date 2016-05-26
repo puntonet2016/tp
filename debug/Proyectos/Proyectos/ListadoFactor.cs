@@ -22,7 +22,24 @@ namespace Proyectos
 
         private void ListadoFactorForm_Shown(object sender, EventArgs e)
         {
-            DataTable dt= new DataTable();
+            this.cargarDatos();
+        }
+
+        private void GrillaFactores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            string nombreFactor = this.GrillaFactores.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+            FactorForm form = new FactorForm(nombreFactor);
+            form.ShowDialog(this);
+
+            this.cargarDatos();
+        }
+
+        private void cargarDatos()
+        {
+            DataTable dt = new DataTable();
             FactoresNegocio negocio = new FactoresNegocio();
             IList<factores> listaFactores = negocio.getTodos();
 
@@ -36,19 +53,13 @@ namespace Proyectos
             {
                 foreach (factores f in listaFactores)
                     dt.Rows.Add(new Object[] { f.nombre, f.habilitado, f.valorAlto, f.valorMedio, f.valorBajo });
+
+                System.Console.WriteLine(listaFactores.Count + " agregados");
             }
             else MessageBox.Show(this, negocio.errores.First());
-                
+
 
             this.GrillaFactores.DataSource = dt;
-        }
-
-        private void GrillaFactores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string nombreFactor = this.GrillaFactores.Rows[e.RowIndex].Cells[0].Value.ToString();
-
-            FactorForm form = new FactorForm(nombreFactor);
-            form.Show();
         }
     }
 }

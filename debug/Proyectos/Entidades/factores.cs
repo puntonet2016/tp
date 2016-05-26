@@ -14,6 +14,11 @@ namespace Entidades
     
     public partial class factores
     {
+        /// <summary>
+        /// Maximo de caracteres que puede tener el nombre del factor.
+        /// </summary>
+        public const int MAXIMO_NOMBRE = 50;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public factores()
         {
@@ -27,128 +32,94 @@ namespace Entidades
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<valores> valores { get; set; }
 
+        /// <summary>
+        /// Valor bajo del factor
+        /// </summary>
         public string valorBajo
         {
-            set
-            {
-
-                bool modificado = false;
-
-                foreach (valores v in this.valores)
-                    if (v.rating == 0)
-                    {
-                        modificado = true;
-                        v.nombre = value;
-                        break;
-                    }
-
-                if (!modificado)
-                {
-                    valores valor = new valores()
-                    {
-                        nombre = value,
-                        rating = 0,
-                        nombreFactor = this.nombre
-                    };
-
-                    this.valores.Add(valor);
-                }
-            }
-
-            get
-            {
-
-                foreach (valores v in this.valores)
-                    if (v.rating == 0)
-                        return v.nombre;
-
-                return "";
-            }
+            set { this.setValor(value, 0); }
+            get { return this.getValor(0); }
         }
 
+        /// <summary>
+        /// Valor medio del factor
+        /// </summary>
         public string valorMedio
         {
-            set
-            {
+            set { this.setValor(value, 1); }
+            get { return this.getValor(1); }
+        }
 
-                bool modificado = false;
+        /// <summary>
+        /// Valor alto del factor
+        /// </summary>
+        public string valorAlto
+        {
+            set { this.setValor(value, 2); }
+            get { return this.getValor(2); }
+        }
 
-                foreach (valores v in this.valores)
-                    if (v.rating == 1)
-                    {
-                        modificado = true;
-                        v.nombre = value;
-                        break;
-                    }
+        /// <summary>
+        /// Establece el nombre del valor para el rating indicado.
+        /// Si ya existe un valor con el mismo rating, se le sobreescribre el nombre.
+        /// </summary>
+        /// <param name="_nombre">Nombre del valor.</param>
+        /// <param name="_rating">Rating asociado al valor.</param>
+        private void setValor(string _nombre, short _rating)
+        {
+            bool modificado = false;
 
-                if (!modificado)
+            foreach (valores v in this.valores)
+                if (v.rating == _rating)
                 {
-                    valores valor = new valores()
-                    {
-                        nombre = value,
-                        rating = 1,
-                        nombreFactor = this.nombre
-                    };
-
-                    this.valores.Add(valor);
+                    modificado = true;
+                    v.nombre = _nombre;
+                    break;
                 }
-            }
 
-            get
+            if (!modificado)
             {
+                valores valor = new valores()
+                {
+                    nombre = _nombre,
+                    rating = _rating,
+                    nombreFactor = this.nombre
+                };
 
-                foreach (valores v in this.valores)
-                    if (v.rating == 1)
-                        return v.nombre;
-
-                return "";
+                this.valores.Add(valor);
             }
         }
 
-        public string valorAlto
+        /// <summary>
+        /// Obtiene el nombre del valor para el rating dado.
+        /// </summary>
+        /// <param name="_rating">Rating del valor</param>
+        /// <returns>Nombre del valor encontrado. Se obtiene una cadena vacia en caso de que todavía
+        /// no se haya inicializado un valor con el rating solicitado.</returns>
+        private string getValor(int _rating)
         {
-            set { 
+            foreach (valores v in this.valores)
+                if (v.rating == _rating)
+                    return v.nombre;
 
-                bool modificado= false;
-
-                foreach(valores v in this.valores)
-                    if (v.rating == 2)
-                    {
-                        modificado = true;
-                        v.nombre = value;
-                        break;
-                    }
-
-                if (!modificado)
-                {
-                    valores valor = new valores()
-                    {
-                        nombre= value,
-                        rating= 2,
-                        nombreFactor= this.nombre
-                    };
-
-                    this.valores.Add(valor);
-                }
-            }
-
-            get {
-
-                foreach (valores v in this.valores)
-                    if (v.rating == 2)
-                        return v.nombre;
-
-                return "";
-            }
+            return "";
         }
 
         public override string ToString(){
 
             string ret = "Clase: factores.\n";
             ret += "Nombre: " + this.nombre + "\n";
-            
-            foreach(valores v in this.valores)
-                ret += "- Valor: " + v.nombre + ". Rating: " + v.rating + "\n";
+
+            if (this.valores == null)
+            {
+                ret += "No se ha indicado ningún valor.";
+                return ret;
+            }
+
+
+            foreach (valores v in this.valores)
+                ret += "- " + v.ToString() + "\n";
+                //ret += "- Valor: " + v.nombre + ". Rating: " + v.rating + "\n";
 
             return ret;
         }
